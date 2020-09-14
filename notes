@@ -1,0 +1,46 @@
+
+
+
+Simple examples of some basic typescript features
+
+
+how to set use:
+    nodemon.json just runs: tsc && node ts1.js
+    npm run start just runs: nodemon, so its basically the same as above
+
+    nodemon watches for files to change, outputs the js, then runs the output 'node ts1.js'
+
+    look in tsconfig.json to see all the typescript options
+
+
+///////////////////
+
+see what version you have:
+    > tsc -v
+
+npm init to create package.json, then...
+    > npm i -g typescript
+
+nodemon is already set up, all you need to do to run this is:
+    > nodemon  //this uses the nodemon.json config
+        OR
+    > npm run start //this uses package.json, which ends up doing the same as above
+
+you could also use the tsc watch flag, but it wont auto run the output
+    > tsc ts1.ts --watch
+
+> tsc ts1.ts && node ts1.js //typecheck ts1.ts, dont use config file, and output to ts1.js, then run it
+    VS
+> npx ts-node ./ts1.ts //just runs it, no js file output
+    VS
+> npx ts-node 
+    VS
+> tsc && node ts1.js //compile all .tsc files, use config file, output to ts1.js
+
+
+if you run
+    > tsc
+with no filename, then all the .tsc files get compiled and all of them use the tsconfig.json rules
+
+
+check out the config options in tsconfig.js

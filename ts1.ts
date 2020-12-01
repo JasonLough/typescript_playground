@@ -1,16 +1,11 @@
-
-const s = console.log
-
+const s = console.log;
 
 //boolean, number, string
 //boolean[], number[], string[]
 //any, null, undefined
 
-//let arr2: number[] = new Array(3).fill(3).map( (e,i) => i * i)
-
-// let person: [string, number, boolean] = ['jason', 43, false]
-// s(Array.isArray(person)) //true
-
+let person: [string, number, boolean] = ['bob', 43, false]
+s(Array.isArray(person)) //true
 
 //*************** enum vs object
 // enum eDays { Sun, Mon, Tue, Wed, Thu, Fri, Sat}
@@ -30,12 +25,12 @@ const s = console.log
 
 // const oDays = { sun:0, mon:1, tue:2, wed:3, thu:4, fri:5, sat:6}
 // s(oDays.thu)
-// s(oDays[4]) //not as nice as with an enum
+//s(oDays[4]) //not as nice as with an enum
 
 //*************** casting an unknown to a type
 // let myVar: unknown = 'e' //change unknown to any
 // s(myVar as number)
-// s(myVar as string) 
+// s(myVar as string)
 // s(typeof myVar)
 
 //*************** reassigning causes err
@@ -44,19 +39,19 @@ const s = console.log
 
 // let b; //if b isnt initialized, it gets no inferred type
 // b = 10
-// b = 20 //no error, as b was not initialized
+// b = 'apples' //no error, as b was not initialized
 
 //*************** multiple types (also called union types)
 // let a: boolean | number = 0 //multitype
 // s(typeof a) //number
-//a = 'hello' //error
+// a = 'hello' //error
 //s(a == false ? `a is falsy: ${a} ${typeof a}` : `a is truthy: ${a} ${typeof a}`) //error
 //s(false == 0) //error, no type coercion!
 
 //***************
-function add(n1: number, n2: number) :number {
-    return n1 + n2
-}
+// function add(n1: number, n2: number) :number {
+//     return n1 + n2
+// }
 //s(add(3,3))
 //// add(//note the intellisense: add(n1: number, n2: number): number
 
@@ -67,13 +62,11 @@ function add(n1: number, n2: number) :number {
 // s( add2(6) )
 // s( add2(6,7) )
 
-
 // function foo(a: string|number, b?:number, c:number = 9) : void {
 //     s(a,b,c)
-
-    
 // }
-// s('hello', 2,3)
+// foo('apples', 44)
+// foo(4, 33, 22)
 
 //const mul = (n1: number, n2: number = 5) : number => n1 * n2 //default arg in fat arrow func
 // s(mul(4,3)) //12
@@ -100,11 +93,11 @@ function add(n1: number, n2: number) :number {
 //     lname: 'lee'
 // }
 
-// // //force a function to take an object of a specific 'shape'
+// // // //force a function to take an object of a specific 'shape'
 // function foo( person: iPerson, age: number ) : iPerson {
-//     return { 
-//         ...person, 
-//         age, 
+//     return {
+//         ...person,
+//         age,
 //         gender: (Math.random() -.5 > 0 ? true:false)
 //     }
 // }
@@ -129,7 +122,6 @@ function add(n1: number, n2: number) :number {
 //     }
 // }
 
-
 // interface iPetDetails {
 //     owner: string;
 //     age: number | string;
@@ -145,7 +137,7 @@ function add(n1: number, n2: number) :number {
 //         super(name)
 
 //         this.owner = owner
-//         this.age = typeof age === 'undefined' ? 'not set' : age 
+//         this.age = typeof age === 'undefined' ? 'not set' : age
 //     }
 
 //     private getOwner() : string {
@@ -156,27 +148,26 @@ function add(n1: number, n2: number) :number {
 //         return {
 //             owner: this.getOwner(),
 //             age : this.age,
-//             name: this.name 
+//             name: this.name
 //         }
 //     }
-    
+
 // }
 
 // let fido = new Pet('fido', 'jason', 5)
 // s( fido.getDetails())
 
-
 //*************** super fancy
-
 //fat arrow taking:
 //  an array of specific size and types
 //  an optional boolean arg
 //  an arg of type array of numbers with the default being [0,0]
 //and returning nothing
 // const fancy = (
-//     arr:[string|boolean, number|boolean], 
-//     def: number[] = [0,0], 
-//     opt?: any) 
+//     arr:[string | boolean, number | boolean],
+//     def: number[] = [0,0],
+//     opt?: any
+//     )
 //     : void => {
 
 //         s(`
@@ -201,8 +192,6 @@ function add(n1: number, n2: number) :number {
 
 //***************
 
-
-
 //*************** super fancy2
 // interface iItem {
 //     name: eItems;
@@ -214,12 +203,27 @@ function add(n1: number, n2: number) :number {
 // enum eItems { rock, pen, key, feather }
 
 // let myItem1: iItem = {
-//     name: eItems.pen,
+//     name: eItems.feather,
 //     weight: 0.1,
 //     desc: 'a small feather',
-//     flags: '00101001'    
+//     flags: '00101001'
 // }
 
+//*************** generics
+// type numArray= Array<number>
+// let p: numArray = [5,4,3]
 
+// type strArray = Array<string>
 
-export {} //makes ts see this file as a module, so it wont throw the error 'redeclared variable'
+// const last = (arr: number[]) => {
+
+//     return arr.length - 1
+// }
+
+// const l = last([6,5,4,3])
+
+// s(l)
+
+// const first = <T>()
+
+export { }; //makes ts see this file as a module, so it wont throw the error 'redeclared variable'

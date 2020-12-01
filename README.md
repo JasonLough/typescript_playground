@@ -11,16 +11,16 @@ How to set use:
 1) Clone this repo
 2) in terminal, npm i
 3) in terminal, nodemon
-4) view / edit ts1.js
+4) view / edit ts1.ts
 5) save your work, the compiling and running happens automagically. goto step 4.
 
 ---
 
 I use Visual Studio Code, heres my setup:
 
-- The left panel = where you experiment in typescript.
+- The left panel = ts1.ts, where you experiment in typescript.
 
-- The right panel = the compiled js (output of typescript compiler).
+- The right panel = ts1.js, the compiled js (output of typescript compiler).
 
 - The bottom panel = the result of the code running.
 
